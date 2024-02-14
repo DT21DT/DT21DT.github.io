@@ -21,6 +21,8 @@ document.addEventListener('DOMContentLoaded', function() {
         event.preventDefault();
         const itemId = event.dataTransfer.getData('text/plain');
         const item = document.getElementById(itemId);
-        event.target.appendChild(item);
+        if (event.target.id === 'bins-container') {
+            event.target.appendChild(item);
+        }
     }
 });
