@@ -21,6 +21,13 @@ document.addEventListener('DOMContentLoaded', function() {
         event.preventDefault();
         const itemId = event.dataTransfer.getData('text/plain');
         const item = document.getElementById(itemId);
-        event.target.appendChild(item);
+
+        // Determine the actual target container
+        const targetContainer = event.target.closest('.bin');
+
+        // Check if a valid target container was found
+        if (targetContainer) {
+            targetContainer.appendChild(item);
+        }
     }
 });
