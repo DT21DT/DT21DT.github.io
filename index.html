@@ -7,18 +7,19 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div id="bins-container">
-        <div class="bin">Bin 1</div>
-        <div class="bin">Bin 2</div>
-        <div class="bin">Bin 3</div>
-
+    <div id="bins-container1" class="bins-container" data-capacity="5" data-cost="10">
+        <!-- Contenitore 1 qui -->
+    </div>
+    <div id="bins-container2" class="bins-container" data-capacity="8" data-cost="15">
+        <!-- Contenitore 2 qui -->
     </div>
     <div id="items-container">
         <!-- Elementi qui -->
-        <div class="item" draggable="true">Item 1</div>
-        <div class="item" draggable="true">Item 2</div>
+        <div class="item" draggable="true" data-height="2">Item 1</div>
+        <div class="item" draggable="true" data-height="3">Item 2</div>
         <!-- Aggiungi altri elementi qui -->
     </div>
+    
 
     <script src="script.js"></script>
 </body>
