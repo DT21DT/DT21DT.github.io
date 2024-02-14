@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const items = document.querySelectorAll('.item');
     const bins = document.querySelectorAll('.bins-container');
+    const items = document.querySelectorAll('.item');
     
     bins.forEach(bin => {
         bin.currentCapacity = 0;
