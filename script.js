@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     items.forEach(item => {
         item.addEventListener('dragstart', dragStart);
+        item.addEventListener('dragend', dragEnd);
     });
 
     function dragStart(event) {
@@ -28,16 +29,26 @@ document.addEventListener('DOMContentLoaded', function() {
         const itemHeight = parseInt(item.dataset.height);
         const currentBin = event.target;
 
-        if (currentBin.currentCapacity + itemHeight <= parseInt(currentBin.dataset.capacity)) {
-            currentBin.appendChild(item);
-            currentBin.currentCapacity += itemHeight;
-            currentBin.totalCost += parseInt(currentBin.dataset.cost);
-            console.log("Capacità attuale del contenitore:", currentBin.currentCapacity);
-            console.log("Costo totale:", currentBin.totalCost);
-        } else {
-            console.log("Il contenitore è pieno! Non è possibile aggiungere questo elemento.");
+        // Verifica se l'elemento è stato rilasciato dentro al bin
+        if (currentBin.classList.contains('bins-container')) {
+            if (currentBin.currentCapacity + itemHeight <= parseInt(currentBin.dataset.capacity)) {
+                currentBin.appendChild(item);
+                currentBin.currentCapacity += itemHeight;
+                currentBin.totalCost += parseInt(currentBin.dataset.cost);
+                console.log("Capacità attuale del contenitore:", currentBin.currentCapacity);
+                console.log("Costo totale:", currentBin.totalCost);
+            } else {
+                console.log("Il contenitore è pieno! Non è possibile aggiungere questo elemento.");
+            }
         }
     }
+
+    function dragEnd(event) {
+        const itemId = event.target.id;
+        const originalContainer = document.getElementById('items-container');
+        originalContainer.appendChild(document.getElementById(itemId));
+    }
 });
+
 
 
