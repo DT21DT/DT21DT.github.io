@@ -39,32 +39,6 @@
     <script src="https://cdn.jsdelivr.net/npm/@interactjs/interactjs@1.10.11/dist/interact.min.js"></script>
     <script src="script.js"></script>
 
-    <script>
-        $(document).ready(function(){
-            $("#call-cloud-function").click(function(){
-                // Dati da inviare alla funzione Cloud
-                var dataToSend = {
-                    "numbers": [1, 2, 3]  // Inserisci qui i tuoi numeri
-                };
-    
-                $.ajax({
-                    url: 'https://europe-west2-binpacking-414323.cloudfunctions.net/function-1-bpp', // Cambia l'URL con quello della tua funzione Cloud
-                    type: 'POST',
-                    contentType: 'application/json',
-                    data: JSON.stringify(dataToSend),
-                    success: function(response) {
-                        console.log('Risposta dalla funzione Cloud:', response);
-                        // Gestisci la risposta qui, ad esempio mostrando il risultato sulla pagina
-                        $("#result").text("Il risultato è: " + response.result);
-                    },
-                    error: function(xhr, status, error) {
-                        console.error('Errore durante la chiamata alla funzione Cloud:', error);
-                        // Gestisci l'errore qui
-                    }
-                });
-            });
-        });
-    </script>
     
 </body>
 </html>
