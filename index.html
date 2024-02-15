@@ -63,7 +63,7 @@
     <div id="totalCost">Costo totale: $0.00</div> <!-- Elemento per visualizzare il costo totale -->
 
     <!-- Aggiunta di un pulsante per chiamare la funzione Cloud -->
-    <button id="call-cloud-function">Chiamare la funzione 1 Cloud</button>
+    <button id="call-cloud-function">Chiamare la funzione Cloud</button>
 
     <div id="result"></div>
 
@@ -78,8 +78,8 @@
                 // Dati da inviare alla funzione Cloud
                 var dataToSend = {
                     "weights": [10, 10, 9, 7, 5, 4, 4, 4, 3, 3, 2, 2],
-                    "bin_costs": [10, 9, 6, 4, 3],
-                    "bin_capacities": [18, 15, 10, 8, 6],
+                    "bin_costs": [10, 9, 6, 4, 3, 10, 9, 6, 4, 3],
+                    "bin_capacities": [18, 15, 10, 8, 6, 18, 15, 10, 8, 6],
                 };
     
                 $.ajax({
