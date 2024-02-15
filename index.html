@@ -39,7 +39,7 @@
         $(document).ready(function(){
             $("#call-function").click(function(){
                 $.ajax({
-                    url: 'URL_DELLA_TUA_FUNZIONE',
+                    url: 'https://europe-west2-binpacking-414323.cloudfunctions.net/solve_bpp',
                     type: 'POST',
                     contentType: 'application/json',
                     data: JSON.stringify({}),
