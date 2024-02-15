@@ -1,42 +1,155 @@
+.container {
+    display: grid;
+    grid-template-columns: auto; /* Utilizza una colonna automatica */
+    align-items: center; /* Allinea gli elementi al centro verticalmente */
+    justify-items: center; /* Allinea gli elementi al centro orizzontalmente */
+    margin-bottom: 20px; /* Distanziamento tra i contenitori */
+
+    background-color: #f5f5f5; /* Colore di sfondo */
+    border-radius: 10px; /* Bordo arrotondato */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Ombreggiatura */
+
+}
+
+.container h3 {
+    text-align: center; /* Centra il testo orizzontalmente */
+    margin: 0; /* Rimuovi i margini predefiniti */
+    font-size: 16px; /* Imposta la dimensione del testo */
+
+    color: #333; /* Colore del testo */
+
+}
+
 .container-bins {
     display: flex;
     justify-content: space-around;
-    margin-top: 20px;
+    margin: auto;
+    align-items: flex-end; /* Allinea i contenitori in basso */
+
 }
 
 .container-items {
     display: flex;
-    flex-direction: column; /* Imposta la direzione dei contenitori come colonna */
-    align-items: flex-start; /* Allinea gli elementi alla sinistra */
+    justify-content: space-around;
+    flex-direction: row; /* Imposta la direzione dei contenitori come colonna */
+    margin: auto;
+    align-items: flex-end; /* Allinea gli elementi alla sinistra */
     margin-top: 20px;
 }
 
-.bin, .item {
-    width: 100px;
-    border: 1px solid black;
+.container-items .item {
+    margin-right: auto;
+}
+
+.bin {
+    max-width: 100px; /* Larghezza massima dei contenitori */
+    width: 100%;
+    /* Altezza basata sulla capacità */
+    height: calc(var(--capacity) * 10.2px); /* Esempio: 10px per ogni unità di capacità */ 
+
+    border: 1px solid rgba(0, 0, 0, 0.2); /* Bordo sottile */
     text-align: center;
     margin-bottom: 10px;
+
+    align-self: flex-end; /* Allinea il bin in basso */   
+    display: flex; /* Imposta il display del bin come flex container */
+    flex-direction: column-reverse; /* Imposta la direzione dei flex items come inversa rispetto a quella predefinita (dal basso verso l'alto) */
+    align-items: flex-end; /* Allinea gli item alla base del bin */
+
+    background-color: #0000005b; /* Colore di sfondo */
+    border-radius: 5px; /* Bordo arrotondato */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Ombreggiatura */
+
+}
+
+
+/* Media query per ridurre proporzionalmente le dimensioni dei contenitori */
+@media screen and (max-width: 1200px) {
+    .container-bins, .container-items {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr); /* Crea 5 colonne con larghezza uguale */
+        grid-gap: 20px; /* Spazio tra i bin */
+    }
+
+    .container {
+        width: calc(100% - 20px); /* Larghezza dei container meno lo spazio tra le colonne */
+    }
+
+    .bin, .item {
+        width: 100%; /* Imposta la larghezza al 100% per riempire la colonna */
+    }
+
+    h3 {
+        font-size: 12px;
+        margin: 3px;   
+    }
+}
+
+/* Media query per rendere le larghezze proporzionali alla dimensione dello schermo */
+@media screen and (max-width: 600px) {
+    .container-bins, .container-items {
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* Adatta dinamicamente il numero di colonne e la loro larghezza */
+    }
+    
+    .bin, .item {
+        width: calc(20vw - 20px); /* Larghezza proporzionale alla larghezza della finestra del browser */
+    }
+}
+
+.item {
+    max-width: 100px; /* Larghezza massima dei contenitori */
+    width: 100%;
+    /* Altezza basata sull'altezza specificata */
+    height: calc(var(--height) * 10px); /* Esempio: 10px per ogni unità di altezza */
+    cursor: pointer;
+    text-align: center;
+    margin-bottom: 10px;
+    border: 2px solid rgba(0, 0, 0, 0.2); /* Bordo sottile */
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); /* Ombra */
+    border-radius: 5px; /* Bordo arrotondato */
+    transition: transform 0.3s ease; /* Aggiungi una transizione per un effetto di animazione */
+
 }
 
 .bin .item {
     margin-bottom: 0; /* Rimuovi il margine in basso solo per gli item all'interno dei bins */
 }
 
-.bin {
-    /* Altezza basata sulla capacità */
-    height: calc(var(--capacity) * 10.2px); /* Esempio: 10px per ogni unità di capacità */    
-}
-
-.item {
-    /* Altezza basata sull'altezza specificata */
-    height: calc(var(--height) * 10px); /* Esempio: 10px per ogni unità di altezza */
-    cursor: pointer;
-}
-
 .item:hover {
-    background-color: lightgray;
+    background-color: rgba(0, 0, 0, 0.05); /* Leggero ombreggiatura al passaggio del mouse */
+    transform: translateY(-2px); /* Solleva leggermente l'elemento */
+
 }
 
+.item.height-10 {
+    background-color: #ff6565; /* Rosso per altezza 10 */
+}
+
+.item.height-9 {
+    background-color: #79fe79; /* Verde per altezza 9 */
+}
+
+.item.height-7 {
+    background-color: #6d6dff; /* Blu per altezza 7 */
+}
+
+.item.height-5 {
+    background-color: #ffff00; /* Giallo per altezza 5 */
+}
+
+.item.height-4 {
+    background-color: #fb6afb; /* Magenta per altezza 4 */
+}
+
+.item.height-3 {
+    background-color: #6cfefe; /* Ciano per altezza 3 */
+}
+
+.item.height-2 {
+    background-color: #ada5a5; /* Grigio per altezza 2 */
+}
+
+/* Aggiungi altre regole di stile per altre altezze se necessario */
 
 
 
