@@ -12,26 +12,40 @@
 <body>
     <div class="container-bins">
         <h3>Contenitore 1<br>Capacità: 10<br>Costo: $5</h3>
-        <div id="bin1" class="bin" style="--capacity: 10;" data-cost="5"></div>
+        <div id="bin1" class="bin" style="--capacity: 18;" data-cost="10"></div>
 
         <h3>Contenitore 2<br>Capacità: 15<br>Costo: $8</h3>
-        <div id="bin2" class="bin" style="--capacity: 15;" data-cost="8"></div>
+        <div id="bin2" class="bin" style="--capacity: 15;" data-cost="9"></div>
 
         <h3>Contenitore 3<br>Capacità: 20<br>Costo: $10</h3>
-        <div id="bin3" class="bin" style="--capacity: 20;" data-cost="10"></div>
+        <div id="bin3" class="bin" style="--capacity: 10;" data-cost="6"></div>
+
+        <h3>Contenitore 4<br>Capacità: 15<br>Costo: $8</h3>
+        <div id="bin4" class="bin" style="--capacity: 8;" data-cost="4"></div>
+
+        <h3>Contenitore 5<br>Capacità: 20<br>Costo: $10</h3>
+        <div id="bin5" class="bin" style="--capacity: 6;" data-cost="3"></div>
     </div>
 
     <div class="container-items">
-        <div id="item1" class="item" style="--height: 5;" >Item 1 - 5</div>
-        <div id="item2" class="item" style="--height: 7;" >Item 2 - 7</div>
-        <div id="item3" class="item" style="--height: 8;" >Item 3 - 8</div>
-        <div id="item4" class="item" style="--height: 3;" >Item 4 - 3</div>
+        <div id="item1" class="item" style="--height: 10;" >Item 1 - 10</div>
+        <div id="item2" class="item" style="--height: 10;" >Item 2 - 10</div>
+        <div id="item3" class="item" style="--height: 9;" >Item 3 - 9</div>
+        <div id="item4" class="item" style="--height: 7;" >Item 4 - 7</div>
+        <div id="item5" class="item" style="--height: 5;" >Item 5 - 5</div>
+        <div id="item6" class="item" style="--height: 4;" >Item 6 - 4</div>
+        <div id="item7" class="item" style="--height: 4;" >Item 7 - 4</div>
+        <div id="item8" class="item" style="--height: 4;" >Item 8 - 4</div>
+        <div id="item9" class="item" style="--height: 3;" >Item 9 - 3</div>
+        <div id="item10" class="item" style="--height: 3;" >Item 10 - 3</div>
+        <div id="item11" class="item" style="--height: 2;" >Item 11 - 2</div>
+        <div id="item12" class="item" style="--height: 2;" >Item 12 - 2</div>
     </div>
 
     <div id="totalCost">Costo totale: $0.00</div> <!-- Elemento per visualizzare il costo totale -->
 
     <!-- Aggiunta di un pulsante per chiamare la funzione Cloud -->
-    <button id="call-cloud-function">Chiamare la funzione Cloud</button>
+    <button id="call-cloud-function">Chiamare la funzione 1 Cloud</button>
 
     <div id="result"></div>
 
@@ -45,9 +59,9 @@
             $("#call-cloud-function").click(function(){
                 // Dati da inviare alla funzione Cloud
                 var dataToSend = {
-                    "weights": [5, 7, 8, 3],
-                    "bin_costs": [5, 8, 10],
-                    "bin_capacities": [10, 15, 20],
+                    "weights": [10, 10, 9, 7, 5, 4, 4, 4, 3, 3, 2, 2],
+                    "bin_costs": [10, 9, 6, 4, 3],
+                    "bin_capacities": [18, 15, 10, 8, 6],
                 };
     
                 $.ajax({
