@@ -31,7 +31,7 @@
     <div id="totalCost">Costo totale: $0.00</div> <!-- Elemento per visualizzare il costo totale -->
 
     <!-- Aggiunta di un pulsante per chiamare la funzione Cloud -->
-    <button id="call-cloud-function">Chiamare la funzione Cloud</button>
+    <button id="call-cloud-function">Chiamare la funzione 1 Cloud</button>
 
     <div id="result"></div>
 
@@ -39,6 +39,35 @@
     <script src="https://cdn.jsdelivr.net/npm/@interactjs/interactjs@1.10.11/dist/interact.min.js"></script>
     <script src="script.js"></script>
 
+
+    <script>
+        $(document).ready(function(){
+            $("#call-cloud-function").click(function(){
+                // Dati da inviare alla funzione Cloud
+                var dataToSend = {
+                    "items": [48, 30, 19, 36, 36, 27, 42, 42, 36, 24, 30],
+                    "bins": [1, 2, 3],
+                    "bin_capacity": 100
+                };
+    
+                $.ajax({
+                    url: 'https://europe-west2-binpacking-414323.cloudfunctions.net/function-1-bpp', // Cambia l'URL con quello della tua funzione Cloud
+                    type: 'POST',
+                    contentType: 'application/json',
+                    data: JSON.stringify(dataToSend),
+                    success: function(response) {
+                        console.log('Risposta dalla funzione Cloud:', response);
+                        // Gestisci la risposta qui, ad esempio mostrando il risultato sulla pagina
+                        $("#result").text("Il risultato è: " + response.result);
+                    },
+                    error: function(xhr, status, error) {
+                        console.error('Errore durante la chiamata alla funzione Cloud:', error);
+                        // Gestisci l'errore qui
+                    }
+                });
+            });
+        });
+    </script>
     
 </body>
 </html>

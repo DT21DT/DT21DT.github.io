@@ -1,35 +1,3 @@
-// Definisci una funzione per inviare una richiesta POST alla tua funzione Cloud
-function sendRequest() {
-    var numbers = [1, 2, 3];  // Esempio di dati da inviare
-
-    // Crea un oggetto con i dati da inviare
-    var requestData = {
-        numbers: numbers
-    };
-
-    // Effettua una richiesta POST alla tua funzione Cloud
-    fetch('https://europe-west2-binpacking-414323.cloudfunctions.net/hello_http', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json',
-        },
-        body: JSON.stringify(requestData)
-    })
-    .then(response => response.json())
-    .then(data => {
-        // Gestisci la risposta dalla tua funzione Cloud
-        console.log(data);
-    })
-    .catch(error => {
-        console.error('Errore durante la richiesta:', error);
-    });
-}
-
-// Chiamare la funzione sendRequest quando si verifica un evento, ad esempio al clic di un pulsante
-document.getElementById('call-cloud-function').addEventListener('click', sendRequest);
-
-
 document.addEventListener("DOMContentLoaded", function() {
     const bins = document.querySelectorAll(".bin");
     const items = document.querySelectorAll(".item");
