@@ -31,7 +31,7 @@
     <div id="totalCost">Costo totale: $0.00</div> <!-- Elemento per visualizzare il costo totale -->
 
     <!-- Aggiunta di un pulsante per chiamare la funzione Cloud -->
-    <button id="call-cloud-function">Chiamare la funzione 2. Cloud</button>
+    <button id="call-cloud-function">Chiamare la funzione 2 Cloud</button>
 
     <div id="result"></div>
 
@@ -48,7 +48,7 @@
                 };
     
                 $.ajax({
-                    url: 'https://europe-west2-binpacking-414323.cloudfunctions.net/calculate_sum', // Cambia l'URL con quello della tua funzione Cloud
+                    url: 'https://europe-west2-binpacking-414323.cloudfunctions.net/function-1-bpp', // Cambia l'URL con quello della tua funzione Cloud
                     type: 'POST',
                     contentType: 'application/json',
                     data: JSON.stringify(dataToSend),
