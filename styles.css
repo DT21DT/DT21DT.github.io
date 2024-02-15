@@ -1,21 +1,42 @@
-#bins-container {
-    width: 400px;
-    height: 300px;
-    border: 2px solid #ccc;
-    margin-bottom: 20px;
+.container-bins {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
 }
 
-#items-container {
+.container-items {
     display: flex;
+    flex-direction: column; /* Imposta la direzione dei contenitori come colonna */
+    align-items: flex-start; /* Allinea gli elementi alla sinistra */
+    margin-top: 20px;
+}
+
+.bin, .item {
+    width: 100px;
+    border: 1px solid black;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.bin .item {
+    margin-bottom: 0; /* Rimuovi il margine in basso solo per gli item all'interno dei bins */
+}
+
+.bin {
+    /* Altezza basata sulla capacità */
+    height: calc(var(--capacity) * 10.2px); /* Esempio: 10px per ogni unità di capacità */    
 }
 
 .item {
-    width: 100px;
-    height: 50px;
-    background-color: #007bff;
-    color: #fff;
-    margin-right: 10px;
-    text-align: center;
-    line-height: 50px;
+    /* Altezza basata sull'altezza specificata */
+    height: calc(var(--height) * 10px); /* Esempio: 10px per ogni unità di altezza */
     cursor: pointer;
 }
+
+.item:hover {
+    background-color: lightgray;
+}
+
+
+
+
