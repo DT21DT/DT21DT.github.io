@@ -28,7 +28,32 @@
 
     <div id="totalCost">Costo totale: $0.00</div> <!-- Elemento per visualizzare il costo totale -->
 
+    <!-- Aggiunta di un pulsante per chiamare la funzione Cloud -->
+    <button id="call-cloud-function">Chiamare la funzione Cloud</button>
+
+
     <script src="https://cdn.jsdelivr.net/npm/@interactjs/interactjs@1.10.11/dist/interact.min.js"></script>
     <script src="script.js"></script>
+
+    <script>
+        $(document).ready(function(){
+            $("#call-function").click(function(){
+                $.ajax({
+                    url: 'URL_DELLA_TUA_FUNZIONE',
+                    type: 'POST',
+                    contentType: 'application/json',
+                    data: JSON.stringify({}),
+                    success: function(response) {
+                        console.log('Risposta dalla funzione Cloud:', response);
+                        // Gestisci la risposta qui
+                    },
+                    error: function(xhr, status, error) {
+                        console.error('Errore durante la chiamata alla funzione Cloud:', error);
+                        // Gestisci l'errore qui
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
