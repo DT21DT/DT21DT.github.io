@@ -3,90 +3,175 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Posizionamento degli Item</title>
+    <title>Bin Packing Problem</title>
     <link rel="stylesheet" href="styles.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 
 </head>
 <body>
-    <div class="container-bins">
+    <div id="timer"></div>
+
+    <div class="container-bins level-1">
         <div class="container">
             <div id="bin1" class="bin" style="--capacity: 18;" data-cost="10"></div>
-            <h3>Contenitore 1<br>Capacità: 18<br>Costo: £10</h3>
+            <p class="info">Bin 1<br>Capacity: 18<br>Cost: £10</p>
+            <p class="capacity-left">Capacity left:</p>
         </div>
 
         <div class="container">
             <div id="bin2" class="bin" style="--capacity: 15;" data-cost="9"></div>
-            <h3>Contenitore 2<br>Capacità: 15<br>Costo: £9</h3>
+            <p class="info">Bin 2<br>Capacity: 15<br>Cost: £9</p>
+            <p class="capacity-left">Capacity left:</p>
         </div>
 
         <div class="container">
             <div id="bin3" class="bin" style="--capacity: 10;" data-cost="6"></div>
-            <h3>Contenitore 3<br>Capacità: 10<br>Costo: £6</h3>
+            <p class="info">Bin 3<br>Capacity: 10<br>Cost: £6</p>
+            <p class="capacity-left">Capacity left:</p>
         </div>
 
         <div class="container">
             <div id="bin4" class="bin" style="--capacity: 8;" data-cost="4"></div>
-            <h3>Contenitore 4<br>Capacità: 8<br>Costo: £4</h3>
+            <p class="info">Bin 4<br>Capacity: 8<br>Cost: £4</p>
+            <p class="capacity-left">Capacity left:</p>
         </div>
         
         <div class="container">
             <div id="bin5" class="bin" style="--capacity: 6;" data-cost="3"></div>
-            <h3>Contenitore 5<br>Capacità: 6<br>Costo: £3</h3>
+            <p class="info">Bin 5<br>Capacity: 6<br>Cost: £3</p>
+            <p class="capacity-left">Capacity left:</p>
         </div>
 
         <div class="container">
             <div id="bin6" class="bin" style="--capacity: 18;" data-cost="10"></div>
-            <h3>Contenitore 6<br>Capacità: 18<br>Costo: £10</h3>
+            <p class="info">Bin 6<br>Capacity: 18<br>Cost: £10</p>
+            <p class="capacity-left">Capacity left:</p>
         </div>
 
         <div class="container">
             <div id="bin7" class="bin" style="--capacity: 15;" data-cost="9"></div>
-            <h3>Contenitore 7<br>Capacità: 15<br>Costo: £9</h3>
+            <p class="info">Bin 7<br>Capacity: 15<br>Cost: £9</p>
+            <p class="capacity-left">Capacity left:</p>
         </div>
 
         <div class="container">
             <div id="bin8" class="bin" style="--capacity: 10;" data-cost="6"></div>
-            <h3>Contenitore 8<br>Capacità: 10<br>Costo: £6</h3>
+            <p class="info">Bin 8<br>Capacity: 10<br>Cost: £6</p>
+            <p class="capacity-left">Capacity left:</p>
         </div>
 
         <div class="container">
             <div id="bin9" class="bin" style="--capacity: 8;" data-cost="4"></div>
-            <h3>Contenitore 9<br>Capacità: 8<br>Costo: £4</h3>
+            <p class="info">Bin 9<br>Capacity: 8<br>Cost: £4</p>
+            <p class="capacity-left">Capacity left:</p>
         </div>
 
         <div class="container">
             <div id="bin10" class="bin" style="--capacity: 6;" data-cost="3"></div>
-            <h3>Contenitore 10<br>Capacità: 6<br>Costo: £3</h3>
+            <p class="info">Bin 10<br>Capacity: 6<br>Cost: £3</p>
+            <p class="capacity-left">Capacity left:</p>
         </div>
     </div>
 
-    <div class="container-items">
-        <div id="item1" class="item" style="--height: 10;" >Item 1 - 10</div>
-        <div id="item2" class="item" style="--height: 10;" >Item 2 - 10</div>
-        <div id="item3" class="item" style="--height: 9;" >Item 3 - 9</div>
-        <div id="item4" class="item" style="--height: 7;" >Item 4 - 7</div>
-        <div id="item5" class="item" style="--height: 5;" >Item 5 - 5</div>
-        <div id="item6" class="item" style="--height: 4;" >Item 6 - 4</div>
-        <div id="item7" class="item" style="--height: 4;" >Item 7 - 4</div>
-        <div id="item8" class="item" style="--height: 4;" >Item 8 - 4</div>
-        <div id="item9" class="item" style="--height: 3;" >Item 9 - 3</div>
-        <div id="item10" class="item" style="--height: 3;" >Item 10 - 3</div>
-        <div id="item11" class="item" style="--height: 2;" >Item 11 - 2</div>
-        <div id="item12" class="item" style="--height: 2;" >Item 12 - 2</div>
+    <div class="container-items level-1">
+        <div id="item1" class="item" style="--height: 10;" >Weight: 10</div>
+        <div id="item2" class="item" style="--height: 10;" >Weight: 10</div>
+        <div id="item3" class="item" style="--height: 9;" >Weight: 9</div>
+        <div id="item4" class="item" style="--height: 7;" >Weight: 7</div>
+        <div id="item5" class="item" style="--height: 5;" >Weight: 5</div>
+        <div id="item6" class="item" style="--height: 4;" >Weight: 4</div>
+        <div id="item7" class="item" style="--height: 4;" >Weight: 4</div>
+        <div id="item8" class="item" style="--height: 4;" >Weight: 4</div>
+        <div id="item9" class="item" style="--height: 3;" >Weight: 3</div>
+        <div id="item10" class="item" style="--height: 3;" >Weight: 3</div>
+        <div id="item11" class="item" style="--height: 2;" >Weight: 2</div>
+        <div id="item12" class="item" style="--height: 2;" >Weight: 2</div>
     </div>
 
-    <div id="totalCost">Costo totale: £0.00</div> <!-- Elemento per visualizzare il costo totale -->
+    <div class="container-bins level-2 hidden">
+        <div class="container">
+            <div id="bin11" class="bin" style="--capacity: 18;" data-cost="10"></div>
+            <p class="info">Bin 1<br>Capacity: 18<br>Cost: £10</p>
+            <p class="capacity-left">Capacity left:</p>
+        </div>
+
+        <div class="container">
+            <div id="bin12" class="bin" style="--capacity: 14;" data-cost="8"></div>
+            <p class="info">Bin 2<br>Capacity: 14<br>Cost: £8</p>
+            <p class="capacity-left">Capacity left:</p>
+        </div>
+
+        <div class="container">
+            <div id="bin13" class="bin" style="--capacity: 14;" data-cost="8"></div>
+            <p class="info">Bin 3<br>Capacity: 14<br>Cost: £8</p>
+            <p class="capacity-left">Capacity left:</p>
+        </div>
+
+        <div class="container">
+            <div id="bin14" class="bin" style="--capacity: 7;" data-cost="4"></div>
+            <p class="info">Bin 4<br>Capacity: 7<br>Cost: £4</p>
+            <p class="capacity-left">Capacity left:</p>
+        </div>
+        
+        <div class="container">
+            <div id="bin15" class="bin" style="--capacity: 8;" data-cost="4"></div>
+            <p class="info">Bin 5<br>Capacity: 8<br>Cost: £4</p>
+            <p class="capacity-left">Capacity left:</p>
+        </div>
+    </div>
+    
+    <div class="container-items level-2 hidden">
+        <div id="item13" class="item" style="--height: 8;" >Weight: 8</div>
+        <div id="item14" class="item" style="--height: 8;" >Weight: 8</div>
+        <div id="item15" class="item" style="--height: 8;" >Weight: 8</div>
+        <div id="item16" class="item" style="--height: 7;" >Weight: 7</div>
+        <div id="item17" class="item" style="--height: 7;" >Weight: 7</div>
+        <div id="item18" class="item" style="--height: 7;" >Weight: 7</div>
+        <!-- Aggiungi altri items del secondo livello qui -->
+    </div>
+
+    <div class="container-bins level-3 hidden">
+        <div class="container">
+            <div id="bin16" class="bin" style="--capacity: 14;" data-cost="8"></div>
+            <p class="info">Bin 1<br>Capacity: 14<br>Cost: £8</p>
+            <p class="capacity-left">Capacity left:</p>
+        </div>
+
+        <div class="container">
+            <div id="bin17" class="bin" style="--capacity: 11;" data-cost="6"></div>
+            <p class="info">Bin 2<br>Capacity: 11<br>Cost: £6</p>
+            <p class="capacity-left">Capacity left:</p>
+        </div>
+
+        <div class="container">
+            <div id="bin18" class="bin" style="--capacity: 4;" data-cost="5"></div>
+            <p class="info">Bin 3<br>Capacity: 4<br>Cost: £5</p>
+            <p class="capacity-left">Capacity left:</p>
+        </div>
+    </div>
+    
+    <div class="container-items level-3 hidden">
+        <div id="item19" class="item" style="--height: 10;" >Weight: 10</div>
+        <div id="item20" class="item" style="--height: 4;" >Weight: 4</div>
+        <!-- Aggiungi altri items del secondo livello qui -->
+    </div>
+    
+
+    <div id="totalCost">Total Cost: £0.00</div> <!-- Elemento per visualizzare il costo totale -->
 
     <!-- Aggiunta di un pulsante per chiamare la funzione Cloud -->
-    <button id="call-cloud-function">Ottimizza con AI</button>
-
+    <button id="call-cloud-function">AI optimization</button>
     <div id="result"></div>
 
+    <button id="calcolaPunteggio">Submit and Calcola Punteggio</button>
+
+    <div id="punteggio">Punteggio: 0</div>
+    <ul id="classifica"></ul>
 
     <script src="https://cdn.jsdelivr.net/npm/@interactjs/interactjs@1.10.11/dist/interact.min.js"></script>
-    <script src="script.js"></script>
+    <script type="module" src="script.js"></script>
+
 
 
     <script>
